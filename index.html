@@ -18,7 +18,11 @@
         $(document).ready(function(){
             const isPkdnsUrl = location.href.includes("7fmjpc")
             console.log('location', location.href, location.hostname, 'isPkdnsUrl:', isPkdnsUrl)
-            $("#pkdns-verified").show()
+            if (isPkdnsUrl) {
+                $("#pkdns-verified").show()
+            } else {
+                $("#pkdns-verified").hide()
+            }
         });
           </script>
     </head>
@@ -45,8 +49,8 @@
                     <h6 class="mb-8 flex items-center justify-center">
                         <span class="font-medium text-gray-600 text-lg md:text-2xl uppercase pr-2">7fmjpcuuzf54hw18bsgi3zihzyh4awseeuq5tmojefaezjbd64cy</span>
                         
-                        <div id="pkdns-verified" class="inline-block bg-green-600 text-white py-1 px-2 rounded-full text-md" hidden="true">
-                            <i data-feather="check" class="inline"></i> Verified
+                        <div id="pkdns-verified" class="inline-block bg-green-600 text-white py-1 px-2 rounded-full text-md" hidden>
+                            <i data-feather="check" class="inline"></i> pkdns
                         </div>
                     </h6>
 
