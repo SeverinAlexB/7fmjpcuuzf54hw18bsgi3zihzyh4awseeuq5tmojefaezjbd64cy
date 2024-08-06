@@ -8,20 +8,30 @@
         <title>7FMJPC - First Self-Sovereign Domain</title>
         <!-- <link rel="stylesheet" href="assets/css/tailwind.css"> -->
         <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script>
+        $(document).ready(function(){
+            const isPkdnsUrl = location.href.includes("7fmjpc")
+            console.log('location', location.href, location.hostname, 'isPkdnsUrl:', isPkdnsUrl)
+            $("#pkdns-verified").show()
+        });
+          </script>
     </head>
 
-    <body class="bg-gray-100 pb-64">
+    <body class="bg-gray-100 ">
         
         <section class="py-10 md:py-16">
 
             <div class="container max-w-screen-xl mx-auto px-4">
 
+
+
                 <nav class="flex items-center justify-between mb-40">
-                    <!-- <img src="assets/image/navbar-logo.png" alt="Logo"> -->
                     <div></div>
                     <a href="https://github.com/SeverinAlexB/pkdns" target="_blank">
                         <button class="px-7 py-3 md:px-9 md:py-4 bg-white font-medium md:font-semibold text-gray-700 text-md rounded-md hover:bg-gray-700 hover:text-white transition ease-linear duration-500">Github</button>
@@ -30,11 +40,15 @@
                 </nav>
 
                 <div class="text-center">
-                    <!-- <div class="flex justify-center mb-16">
-                        <img src="assets/image/home-img.png" alt="Image">
-                    </div> -->
 
-                    <h6 class="font-medium text-gray-600 text-lg md:text-2xl uppercase mb-8">7fmjpcuuzf54hw18bsgi3zihzyh4awseeuq5tmojefaezjbd64cy</h6>
+
+                    <h6 class="mb-8 flex items-center justify-center">
+                        <span class="font-medium text-gray-600 text-lg md:text-2xl uppercase pr-2">7fmjpcuuzf54hw18bsgi3zihzyh4awseeuq5tmojefaezjbd64cy</span>
+                        
+                        <div id="pkdns-verified" class="inline-block bg-green-600 text-white py-1 px-2 rounded-full text-md" hidden="true">
+                            <i data-feather="check" class="inline"></i> Verified
+                        </div>
+                    </h6>
 
                     <h1 class="font-normal text-gray-900 text-4xl md:text-7xl leading-none mb-8">Pubky Self-Sovereign Domain</h1>
 
@@ -48,40 +62,12 @@
 
                 </div>
 
-                <div class="flex flex-center flex-row mt-32">
-                    <div class="basis-1/3 flex flex-col items-center">
-                        <div class="border rounded-full border-2 p-4">
-                            <i data-feather="grid"></i>
-                        </div>
-                        <div class="pt-2 w-64 text-center">
-                            Back by Mainline, the biggest DHT on the planet.
-                        </div>
-
-                    </div>
-                    <div class="basis-1/3 flex flex-col items-center">
-                        <div class="border rounded-full border-2 p-4">
-                            <i data-feather="key"></i>
-                        </div>
-                        <div class="pt-2 w-64 text-center">
-                            Private/Public key based. No 3rd parties involved.
-                        </div>
-                    </div>
-                    <div class="basis-1/3 flex flex-col items-center">
-                        <div class="border rounded-full border-2 p-4">
-                            <i data-feather="speaker"></i>
-                        </div>
-
-                        <div class="pt-2 w-64 text-center">
-                            Speaks regular DNS. Just change your system server and you're good to go.
-                        </div>
-                    </div>
-                </div>
 
             </div>
 
         </section>
-<!-- 
-        <section class="py-10 md:py-16">
+
+        <section class="pb-10">
 
             <div class="container max-w-screen-xl mx-auto px-4">
 
@@ -91,19 +77,21 @@
                             <i data-feather="activity"></i>
                         </div>
 
-                        <h4 class="font-medium text-gray-700 text-lg mb-4">High experience</h4>
+                        <h4 class="font-medium text-gray-700 text-lg mb-4">Backed by the Mainline DHT</h4>
 
-                        <p class="font-normal text-gray-500 text-md">Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="font-normal text-gray-500 text-md">Backed by the biggest DHT on the planet with a proven track record of 15 years delivering torrents to end users and 15 million active nodes.</p>
                     </div>
                     
                     <div class="bg-gray-50 px-8 py-10 rounded-md">
                         <div class="w-20 py-6 flex justify-center bg-gray-100 rounded-md mb-4">
-                            <i data-feather="codesandbox"></i>
+                            <i data-feather="key"></i>
                         </div>
 
-                        <h4 class="font-medium text-gray-700 text-lg mb-4">Useful sandboxes</h4>
+                        <h4 class="font-medium text-gray-700 text-lg mb-4">Key Based</h4>
 
-                        <p class="font-normal text-gray-500 text-md">Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="font-normal text-gray-500 text-md">
+                            Control your domain name with a public and private key. No 3rd parties are involved.
+                        </p>
                     </div>
                     
                     <div class="bg-gray-50 px-8 py-10 rounded-md">
@@ -111,15 +99,37 @@
                             <i data-feather="coffee"></i>
                         </div>
 
-                        <h4 class="font-medium text-gray-700 text-lg mb-4">Success side projects</h4>
+                        <h4 class="font-medium text-gray-700 text-lg mb-4">Speaks Regular DNS</h4>
 
-                        <p class="font-normal text-gray-500 text-md">Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="font-normal text-gray-500 text-md">
+                            Just change your system DNS server and you're good to go. Compatible with familiar tools like nslookup and dig.
+                        </p>
                     </div>
                 </div>
 
             </div>
 
-        </section> -->
+        </section>
+
+        <section class="py-24">
+            <div class="text-center font-normal text-gray-600 text-lg mb-4">Checkout the Github page and setup pkdns for your computer.</div>
+            <div class="flex items-center justify-center">
+                <a href="https://github.com/SeverinAlexB/pkdns" target="_blank">
+                    <button class="bg-black text-white p-2 px-4 rounded-md text-2xl">Get Started</button>
+                </a>
+
+            </div>
+
+        
+        </section>
+
+        <section class="my-10 md:my-16 border-t border-t-1">
+            <div class="text-center mt-6">May the power ⚡ be with you.</div>
+
+        </section>
+
+
+
 
         <!-- <section class="py-10 md:py-16">
 
@@ -405,9 +415,9 @@
 
             </div>
 
-        </section> -->
+        </section>
 
-        <!-- <footer class="py-10 md:py-16 mb-20 md:mb-40 lg::mb-52">
+        <footer class="py-10 md:py-16 mb-20 md:mb-40 lg::mb-52">
 
             <div class="container max-w-screen-xl mx-auto px-4">
 
