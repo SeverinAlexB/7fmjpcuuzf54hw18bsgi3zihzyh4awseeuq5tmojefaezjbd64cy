@@ -1,141 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>7FMJPC - First Self-Sovereign Domain</title>
-        <!-- <link rel="stylesheet" href="assets/css/tailwind.css"> -->
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7FMJPC - First Self-Sovereign Domain</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
+        integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" />
+    <script>
 
-        <script>
-        $(document).ready(function(){
-            const isPkdnsUrl = location.href.includes("7fmjpc")
+        $(document).ready(function () {
+            // Show the correct dns badge
+            const isPkdnsUrl = location.href.includes("7fmjpca")
             console.log('location', location.href, location.hostname, 'isPkdnsUrl:', isPkdnsUrl)
             if (isPkdnsUrl) {
                 $("#pkdns-verified").show()
+                $("#pkdns-regular").hide()
             } else {
                 $("#pkdns-verified").hide()
+                $("#pkdns-regular").show()
             }
+
+            // Enable tooltips
+            tippy('#pkdns-regular', {
+                content: 'You are accessing this website through the regular ICANN DNS.',
+                placement: 'bottom',
+            });
+            tippy('#pkdns-verified', {
+                content: 'You are using the unstoppable pkdns domains!',
+                placement: 'bottom',
+            });
         });
-          </script>
-    </head>
-
-    <body class="bg-gray-100 ">
-        
-        <section class="py-10 md:py-16">
-
-            <div class="container max-w-screen-xl mx-auto px-4">
 
 
+    </script>
+</head>
 
-                <nav class="flex items-center justify-between mb-40">
-                    <div></div>
-                    <a href="https://github.com/SeverinAlexB/pkdns" target="_blank">
-                        <button class="px-7 py-3 md:px-9 md:py-4 bg-white font-medium md:font-semibold text-gray-700 text-md rounded-md hover:bg-gray-700 hover:text-white transition ease-linear duration-500">Github</button>
-                    </a>
+<body class="bg-gray-100 ">
 
-                </nav>
+    <section class="py-10 md:py-16">
 
-                <div class="text-center">
+        <div class="container max-w-screen-xl mx-auto px-4">
 
-
-                    <h6 class="mb-8 flex items-center justify-center">
-                        <span class="font-medium text-gray-600 text-lg md:text-2xl uppercase pr-2">7fmjpcuuzf54hw18bsgi3zihzyh4awseeuq5tmojefaezjbd64cy</span>
-                        
-                        <div id="pkdns-verified" class="inline-block bg-green-600 text-white py-1 px-2 rounded-full text-md" hidden>
+            <nav class="flex items-center justify-between mb-40">
+                <div>
+                    <div class="">
+                        <div id="pkdns-verified"
+                            class="inline-block bg-green-600 text-white py-1 px-2 rounded-full text-md">
                             <i data-feather="check" class="inline"></i> pkdns
                         </div>
-                    </h6>
-
-                    <h1 class="font-normal text-gray-900 text-4xl md:text-7xl leading-none mb-8">Pubky Self-Sovereign Domain</h1>
-
-                    <p class="font-normal text-gray-600 text-md md:text-xl mb-1">Censorship and deplatform-resistant domain name. It's here today, tomorrow, and any day after.
-                    </p>
-                    <p class="font-normal text-gray-600 text-md md:text-xl mb-16">
-                        Built with 
-                        <a class="font-semibold text-gray-800 text-md relative z-10 hover:text-gray-400" href="https://github.com/SeverinAlexB/pkdns" target="_blank">pkdns</a> and
-                        <a class="font-semibold text-gray-800 text-md relative z-10 hover:text-gray-400" href="https://github.com/pubky/pkarr" target="_blank">pkarr</a>.
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-        <section class="pb-10">
-
-            <div class="container max-w-screen-xl mx-auto px-4">
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-                        <div class="w-20 py-6 flex justify-center bg-gray-100 rounded-md mb-4">
-                            <i data-feather="activity"></i>
-                        </div>
-
-                        <h4 class="font-medium text-gray-700 text-lg mb-4">Backed by the Mainline DHT</h4>
-
-                        <p class="font-normal text-gray-500 text-md">Backed by the biggest DHT on the planet with a proven track record of 15 years delivering torrents to end users and 15 million active nodes.</p>
-                    </div>
-                    
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-                        <div class="w-20 py-6 flex justify-center bg-gray-100 rounded-md mb-4">
-                            <i data-feather="key"></i>
-                        </div>
-
-                        <h4 class="font-medium text-gray-700 text-lg mb-4">Key Based</h4>
-
-                        <p class="font-normal text-gray-500 text-md">
-                            Control your domain name with a public and private key. No 3rd parties are involved.
-                        </p>
-                    </div>
-                    
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-                        <div class="w-20 py-6 flex justify-center bg-gray-100 rounded-md mb-4">
-                            <i data-feather="coffee"></i>
-                        </div>
-
-                        <h4 class="font-medium text-gray-700 text-lg mb-4">Speaks Regular DNS</h4>
-
-                        <p class="font-normal text-gray-500 text-md">
-                            Just change your system DNS server and you're good to go. Compatible with familiar tools like nslookup and dig.
-                        </p>
+                        <button id="pkdns-regular"
+                            class="inline-block text-gray-500 border border-1 border-gray-400 py-1 px-2 rounded-full text-md">
+                            Regular DNS
+                        </button>
                     </div>
                 </div>
-
-            </div>
-
-        </section>
-
-        <section class="py-24">
-            <div class="text-center font-normal text-gray-600 text-lg mb-4">Checkout the Github page and setup pkdns for your computer.</div>
-            <div class="flex items-center justify-center">
                 <a href="https://github.com/SeverinAlexB/pkdns" target="_blank">
-                    <button class="bg-black text-white p-2 px-4 rounded-md text-2xl">Get Started</button>
+                    <button
+                        class="px-7 py-3 md:px-9 md:py-4 bg-white font-medium md:font-semibold text-gray-700 text-md rounded-md hover:bg-gray-700 hover:text-white transition ease-linear duration-500">Github</button>
                 </a>
 
+            </nav>
+
+            <div class="text-center">
+
+                <h6 class="mb-8 flex items-center justify-center">
+                    <span
+                        class="font-medium text-gray-600 text-lg md:text-2xl uppercase pr-2">7fmjpcuuzf54hw18bsgi3zihzyh4awseeuq5tmojefaezjbd64cy</span>
+
+
+                </h6>
+
+                <h1 class="font-normal text-gray-900 text-4xl md:text-7xl leading-none mb-8">Pubky Self-Sovereign Domain
+                </h1>
+
+                <p class="font-normal text-gray-600 text-md md:text-xl mb-1">Censorship and deplatform-resistant domain
+                    name. It's here today, tomorrow, and any day after.
+                </p>
+                <p class="font-normal text-gray-600 text-md md:text-xl mb-16">
+                    Built with
+                    <a class="font-semibold text-gray-800 text-md relative z-10 hover:text-gray-400"
+                        href="https://github.com/SeverinAlexB/pkdns" target="_blank">pkdns</a> and
+                    <a class="font-semibold text-gray-800 text-md relative z-10 hover:text-gray-400"
+                        href="https://github.com/pubky/pkarr" target="_blank">pkarr</a>.
+                </p>
+
             </div>
 
-        
-        </section>
 
-        <section class="my-10 md:my-16 border-t border-t-1">
-            <div class="text-center mt-6">May the power ⚡ be with you.</div>
+        </div>
 
-        </section>
+    </section>
+
+    <section class="pb-10">
+
+        <div class="container max-w-screen-xl mx-auto px-4">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gray-50 px-8 py-10 rounded-md">
+                    <div class="w-20 py-6 flex justify-center bg-gray-100 rounded-md mb-4">
+                        <i data-feather="activity"></i>
+                    </div>
+
+                    <h4 class="font-medium text-gray-700 text-lg mb-4">Backed by the Mainline DHT</h4>
+
+                    <p class="font-normal text-gray-500 text-md">Backed by the biggest DHT on the planet with a proven
+                        track record of 15 years delivering torrents to end users and 15 million active nodes.</p>
+                </div>
+
+                <div class="bg-gray-50 px-8 py-10 rounded-md">
+                    <div class="w-20 py-6 flex justify-center bg-gray-100 rounded-md mb-4">
+                        <i data-feather="key"></i>
+                    </div>
+
+                    <h4 class="font-medium text-gray-700 text-lg mb-4">Key Based</h4>
+
+                    <p class="font-normal text-gray-500 text-md">
+                        Control your domain name with a public and private key. No 3rd parties are involved.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 px-8 py-10 rounded-md">
+                    <div class="w-20 py-6 flex justify-center bg-gray-100 rounded-md mb-4">
+                        <i data-feather="coffee"></i>
+                    </div>
+
+                    <h4 class="font-medium text-gray-700 text-lg mb-4">Speaks Regular DNS</h4>
+
+                    <p class="font-normal text-gray-500 text-md">
+                        Just change your system DNS and you're good to go. Compatible with familiar tools like nslookup
+                        and dig.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="py-24">
+        <div class="text-center font-normal text-gray-600 text-lg mb-4">Checkout the Github page and setup pkdns for
+            your computer.</div>
+        <div class="flex items-center justify-center">
+            <a href="https://github.com/SeverinAlexB/pkdns" target="_blank">
+                <button class="bg-black text-white p-2 px-4 rounded-md text-2xl">Get Started</button>
+            </a>
+
+        </div>
+
+
+    </section>
+
+    <section class="my-10 md:my-16 border-t border-t-1">
+        <div class="text-center mt-6">May the power ⚡ be with you.</div>
+
+    </section>
 
 
 
 
-        <!-- <section class="py-10 md:py-16">
+    <!-- <section class="py-10 md:py-16">
 
             <div class="container max-w-screen-xl mx-auto px-4">
 
@@ -462,9 +497,10 @@
         </footer> -->
 
 
-        <script>
-            feather.replace()
-        </script>
+    <script>
+        feather.replace()
+    </script>
 
-    </body>
+</body>
+
 </html>
