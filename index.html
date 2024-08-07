@@ -26,12 +26,25 @@
                 .catch(e => callback(false))
         }
 
+        const is7fmjpc = location.hostname.includes('7fmjpc')
+
         $(document).ready(function () {
+            // Hide pkdns status
             $("#pkdns-regular").hide()
             $("#pkdns-verified").hide()
-            isPkDnsReachable(isPkdnsUrl => {
-                console.log('pkdns reachable', isPkdnsUrl, testUrl);
-                if (isPkdnsUrl) {
+
+            // Show top banner if not on 7fmjpc
+            console.log('is7fmjpc', is7fmjpc)
+            if (is7fmjpc) {
+                $("#pkdns-note").hide()
+            } else {
+                $("#pkdns-note").show()
+            }
+
+            isPkDnsReachable(isPkdnsReachable => {
+                console.log('pkdns reachable', isPkdnsReachable, testUrl);
+
+                if (isPkdnsReachable) {
                     $("#pkdns-verified").show()
                     $("#pkdns-regular").hide()
                 } else {
@@ -55,6 +68,14 @@
 </head>
 
 <body class="bg-gray-100 ">
+    <div id="pkdns-note" class="border-b border-b-2 py-2 text-sm text-gray-800">
+        <div class="container mx-auto text-center">
+            This website is also available on
+            <a class="hover:text-black"
+                href="http://7fmjpcuuzf54hw18bsgi3zihzyh4awseeuq5tmojefaezjbd64cy/">7fmjpcuuzf54hw18bsgi3zihzyh4awseeuq5tmojefaezjbd64cy</a>.
+        </div>
+    </div>
+
 
     <section class="py-10 md:py-16">
 
@@ -83,6 +104,7 @@
             <div class="text-center">
 
                 <h6 class="mb-8 flex items-center justify-center">
+
                     <span
                         class="font-medium text-gray-600 text-lg md:text-2xl uppercase pr-2">7fmjpcuuzf54hw18bsgi3zihzyh4awseeuq5tmojefaezjbd64cy</span>
 
@@ -106,7 +128,7 @@
                     <a href="https://github.com/SeverinAlexB/pkdns" target="_blank">
                         <button class="bg-black text-white p-2 px-4 rounded-md text-2xl">Get Started</button>
                     </a>
-        
+
                 </div>
 
             </div>
