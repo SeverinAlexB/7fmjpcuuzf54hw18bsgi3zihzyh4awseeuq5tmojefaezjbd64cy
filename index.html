@@ -19,12 +19,12 @@
     <script src="https://unpkg.com/tippy.js@6"></script>
     <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" />
     <script>
-        const testUrl = 'http://7fmjpcuuzf54hw18bsgi3zihzyh4awseeuq5tmojefaezjbd64cy/';
-        function isPkDnsReachable(callback) {
-            fetch(testUrl)
-                .then(resp => resp.status === 200 ? callback(true) : callback(false))
-                .catch(e => callback(false))
-        }
+        // const testUrl = 'http://7fmjpcuuzf54hw18bsgi3zihzyh4awseeuq5tmojefaezjbd64cy/';
+        // function isPkDnsReachable(callback) {
+        //     fetch(testUrl)
+        //         .then(resp => resp.status === 200 ? callback(true) : callback(false))
+        //         .catch(e => callback(false))
+        // }
 
         const is7fmjpc = location.hostname.includes('7fmjpc')
 
@@ -37,21 +37,14 @@
             console.log('is7fmjpc', is7fmjpc)
             if (is7fmjpc) {
                 $("#pkdns-note").hide()
+                $("#pkdns-verified").show()
+                $("#pkdns-regular").hide()
             } else {
                 $("#pkdns-note").show()
+                $("#pkdns-verified").hide()
+                $("#pkdns-regular").show()
             }
 
-            isPkDnsReachable(isPkdnsReachable => {
-                console.log('pkdns reachable', isPkdnsReachable, testUrl);
-
-                if (isPkdnsReachable) {
-                    $("#pkdns-verified").show()
-                    $("#pkdns-regular").hide()
-                } else {
-                    $("#pkdns-verified").hide()
-                    $("#pkdns-regular").show()
-                }
-            })
             // Enable tooltips
             tippy('#pkdns-regular', {
                 content: 'You are accessing this website through the regular ICANN DNS.',
@@ -94,7 +87,7 @@
                         </button>
                     </div>
                 </div>
-                <a href="https://github.com/SeverinAlexB/pkdns" target="_blank">
+                <a href="https://github.com/pubky/pkdns" target="_blank">
                     <button
                         class="px-7 py-3 md:px-9 md:py-4 bg-white font-medium md:font-semibold text-gray-700 text-md rounded-md hover:bg-gray-700 hover:text-white transition ease-linear duration-500">Github</button>
                 </a>
@@ -111,7 +104,7 @@
 
                 </h6>
 
-                <h1 class="font-normal text-gray-900 text-4xl md:text-7xl leading-none mb-8">Pubky Self-Sovereign Domain
+                <h1 class="font-normal text-gray-900 text-4xl md:text-7xl leading-none mb-8">PkDns Self-Sovereign Domain
                 </h1>
 
                 <p class="font-normal text-gray-600 text-md md:text-xl mb-1">Censorship and deplatform-resistant domain
@@ -120,12 +113,14 @@
                 <p class="font-normal text-gray-600 text-md md:text-xl ">
                     Built with
                     <a class="font-semibold text-gray-800 text-md relative z-10 hover:text-gray-400"
-                        href="https://github.com/SeverinAlexB/pkdns" target="_blank">pkdns</a> and
+                        href="https://github.com/pubky/pkdns" target="_blank">pkdns</a>, 
+                        <a class="font-semibold text-gray-800 text-md relative z-10 hover:text-gray-400"
+                        href="https://github.com/pubky/pubky" target="_blank">pubky</a>. and
                     <a class="font-semibold text-gray-800 text-md relative z-10 hover:text-gray-400"
                         href="https://github.com/pubky/pkarr" target="_blank">pkarr</a>.
                 </p>
                 <div class="flex items-center justify-center mb-16 mt-4">
-                    <a href="https://github.com/SeverinAlexB/pkdns" target="_blank">
+                    <a href="https://github.com/pubky/pkdns" target="_blank">
                         <button class="bg-black text-white p-2 px-4 rounded-md text-2xl">Get Started</button>
                     </a>
 
@@ -190,7 +185,7 @@
         <div class="text-center font-normal text-gray-600 text-lg mb-4">Checkout the Github page and setup pkdns for
             your computer.</div>
         <div class="flex items-center justify-center">
-            <a href="https://github.com/SeverinAlexB/pkdns" target="_blank">
+            <a href="https://github.com/pubky/pkdns" target="_blank">
                 <button class="bg-black text-white p-2 px-4 rounded-md text-2xl">Get Started</button>
             </a>
 
